@@ -1,15 +1,14 @@
 const input = document.querySelector("#name-input");
 const span = document.querySelector("#name-output");
 
-input.addEventListener("input", foo);
+input.addEventListener("input", updateNameOutput);
 
-function foo(event) {
-    const newSpan = event.target.value;
-    if (newSpan === "") {
-        span.innerHTML = "Anonymous";
-    } else if (newSpan.includes(" ")) {
+function updateNameOutput(event) {
+    const rawValue = event.target.value.trim();
+
+    if (rawValue === "") {
         span.innerHTML = "Anonymous";
     } else {
-        span.innerHTML = newSpan;
+        span.innerHTML = rawValue;
     }
 }
